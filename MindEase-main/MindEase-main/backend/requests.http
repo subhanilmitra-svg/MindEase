@@ -1,0 +1,66 @@
+### Create a new user
+POST http://localhost:8080/api/auth/signup
+Content-Type: application/json
+
+{
+  "username": "sarath",
+  "password": "password123",
+  "displayName": "Sarath Kumar"
+}
+
+### Login as an existing user
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "bob",
+  "password": "bob"
+}
+
+### Save a new journal entry for user 1
+POST http://localhost:8080/api/journals
+Content-Type: application/json
+
+{
+  "entryText": "Testing the journal API!"
+}
+
+### Update an existing journal entry (!!! IMPORTANT: Replace '8' with a real ID from your DB !!!)
+PUT http://localhost:8080/api/journals/8
+Content-Type: application/json
+
+{
+  "entryText": "This is the NEW updated text!"
+}
+
+### Get mood history for user 1
+GET http://localhost:8080/api/moods
+
+### Get journal history for user 1
+GET http://localhost:8080/api/journals
+
+### Save a new mood for user 1
+POST http://localhost:8080/api/moods
+Content-Type: application/json
+
+{
+  "moodType": "Happy",
+  "moodText": "Feeling great!"
+}
+
+### Get a random tip for Stressed mood
+GET http://localhost:8080/api/tips/Stressed
+
+### Get a random riddle
+GET http://localhost:8080/api/riddles/random
+
+### Delete a mood entry (!!! IMPORTANT: Replace '1' with a real ID from your DB !!!)
+DELETE http://localhost:8080/api/moods/1
+
+### Delete a journal entry (!!! IMPORTANT: Replace '12' with a real ID from your DB !!!)
+DELETE http://localhost:8080/api/journals/16
+
+### Get mood history (Requires Authentication)
+GET http://localhost:8080/api/moods
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJib2IiLCJ1c2VySWQiOjEsImlhdCI6MTc2MTQ5MTI2MSwiZXhwIjoxNzYxNTc3NjYxfQ.Fdj78LP4Y9PhLrnNOCDq1irBKLZ38bBk-S_7qlM7PATxeitpgtWQLFQutZ9F2_2WR3Qk6uZOvBRKIxavAvkeQg
+
